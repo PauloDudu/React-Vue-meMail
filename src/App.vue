@@ -5,11 +5,13 @@
 </template>
 
 <style>
+:root {
+  background-color:#083d6e;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: #fff;
 }
+
 </style>
