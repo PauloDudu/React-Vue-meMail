@@ -1,20 +1,38 @@
 {
-    "usuarios": [
-        {
-            "email": "dudu@gmail.com",
-            "senha": "teste",
-            "admin": true
-        }, 
-        {
-            "email": "cicero@gmail.com",
-            "senha": "123123",
-            "admin": false
-        }
-    ],
-    "tarefas": [
-        {
-           "descricao": "Todo",
-           "completada": false
-        }
-    ]
+  "usuarios": [
+    {
+      "nome": "Paulo",
+      "sobrenome": "Guedes",
+      "email": "dudu@gmail.com",
+      "cpf": "18920592776",
+      "senha": "senha",
+      "cep": "12312313123",
+      "id": 1
+    },
+    {
+      "nome": "Cicero",
+      "sobrenome": "Guedes",
+      "email": "cicero@gmail.com",
+      "cpf": "11111111111",
+      "senha": "teste",
+      "cep": "123123",
+      "id": 2
+    },
+    {
+      "nome": "Gaby",
+      "sobrenome": "Guedes",
+      "email": "Gaby@gmail.com",
+      "cpf": "11111111111",
+      "senha": "123",
+      "cep": "123123",
+      "id": 3
+    }
+  ],
+  "tarefas": [
+    {
+      "descricao": "Todo",
+      "completada": false,
+      "id": 1
+    }
+  ]
 }

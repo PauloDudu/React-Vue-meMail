@@ -51,13 +51,13 @@ export default {
   methods: {
     async login() {
       if (!this.user.email || !this.user.senha) {
-        alert("Preencha os campos!");
+        this.$vToastify.removeToast();
+        this.$vToastify.warning("Preencha os campos por favor", "Atenção");
         return;
       }
 
       try {
         const response = await axios.get(this.baseUrl + "usuarios");
-        // console.log(response.data);
 
         this.found = response.data.find(
           (user) =>
@@ -66,27 +66,24 @@ export default {
 
         if (!this.found) {
           console.log("Email ou senha inválidos");
+          this.$vToastify.removeToast();
+          this.$vToastify.error("Usuario ou senha inválidos", "Erro");
           return {};
         } else {
           console.log("Tudo certo!");
           const { email, senha } = this.found;
 
-          this.token = jwt.sign({ email, senha }, "tokensecret", {
-            expiresIn: "1h",
-          });
-
-          this.local = window.localStorage.getItem("@MAIL:Token");
-          if (this.local) {
-            window.localStorage.removeItem("@MAIL:Token");
-          } else {
-            window.localStorage.setItem("@MAIL:Token", this.token);
-          }
+          this.token = jwt.sign({ email, senha }, "tokensecret");
+          this.$cookie.set("Token", this.token, 1);
           this.$router.replace("/dashboard");
         }
       } catch (error) {
         console.log(error);
       }
     },
+  },
+  mounted() {
+    this.$vToastify.setSettings({ singular: true, hideProgressbar: true });
   },
 };
 </script>

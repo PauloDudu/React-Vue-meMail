@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <h1>Dashboard</h1>
+    <h1>Bem vindo {{ user.email }} à Dashboard</h1>
   </div>
 </template>
 
@@ -8,19 +8,27 @@
 import jwt from "jsonwebtoken";
 export default {
   name: "dashboard",
-  components: {
+  components: {},
+  data() {
+    return {
+      user: {},
+    };
   },
   mounted() {
-      let local = window.localStorage.getItem("@MAIL:Token");
+    const token = this.$cookie.get("Token");
 
-      if (local) {
-        jwt.verify(local, "tokensecret", (err, userDecoded) => {
-          console.log("email: " + userDecoded.email + " senha: " +  userDecoded.senha);
-        });
-      } else {
-        return;
-      }
+    if (token) {
+      jwt.verify(token, "tokensecret", (err, userDecoded) => {
+        console.log(
+          "email: " + userDecoded.email + " senha: " + userDecoded.senha
+        );
+        this.user = userDecoded;
+      });
+    } else {
+      window.location.href = "/";
+      return;
     }
+  },
 };
 </script>
 

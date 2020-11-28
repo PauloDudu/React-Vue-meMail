@@ -9,14 +9,19 @@
     "server": "json-server --watch db.json --port 3333"
   },
   "dependencies": {
+    "aws-sdk": "^2.799.0",
     "axios": "^0.21.0",
+    "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
     "core-js": "^3.6.5",
     "json-server": "^0.16.3",
     "jsonwebtoken": "^8.5.1",
+    "react-toastify": "^6.1.0",
     "spectre.css": "^0.5.9",
     "vue": "^2.6.11",
-    "vue-router": "^3.4.9"
+    "vue-cookie": "^1.1.4",
+    "vue-router": "^3.4.9",
+    "vue-toastify": "^1.8.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
